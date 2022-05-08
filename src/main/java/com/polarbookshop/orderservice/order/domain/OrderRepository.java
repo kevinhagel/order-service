@@ -1,13 +1,9 @@
 package com.polarbookshop.orderservice.order.domain;
 
+import reactor.core.publisher.Flux;
+
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
-/**
- * OrderRepository
- *
- * @author Kevin Hagel
- * @since 7.05.22
- */
-public interface OrderRepository extends ReactiveCrudRepository<Order, Long> {
-
+public interface OrderRepository extends ReactiveCrudRepository<Order,Long> {
+	Flux<Order> findAllByCreatedBy(String userId);
 }
